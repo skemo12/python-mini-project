@@ -1,11 +1,12 @@
 """ Dice simulator """
 
-import random
+from random import SystemRandom
 
 print("This is a dice stimulator")
 X = "y"
+CRYPTO_GENERATOR = SystemRandom()
 while X == "y":
-    NUMBER = random.randint(1, 6)
+    NUMBER = CRYPTO_GENERATOR.randrange(1, 6)
 
     if NUMBER == 1:
         print("===========")
