@@ -1,5 +1,6 @@
 """ Rock scissors paper simulator """
-import random
+from random import SystemRandom
+
 
 # WINNING PATTERNS
 # Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard,
@@ -38,12 +39,14 @@ PLAYERPOINTS = 0
 # TO COUNT THE COMPUTRONS' POINTS
 COMPUTERPOINTS = 0
 
+CRYPTO_GENERATOR = SystemRandom()
+
 # WHILE LOOP TO SET THE NUMBER OF ROUNDS
 while COUNT != 6:
     # INPUT FOR PLAYER'S CHOICE
     PLAYER = input("What is your move? ")
     # COMPUTRON RANDOMLY SELECT CHOICE FROM CHOICES LIST
-    COMPUTER = random.choice(CHOICES)
+    COMPUTER = CRYPTO_GENERATOR.choice(CHOICES)
     # UNCOMMENT THE LINE BELOW IF YOU WISH TO SEE COMPUTRONS' CHOICE
     # print(computer)
 
