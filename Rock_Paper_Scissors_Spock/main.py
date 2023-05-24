@@ -1,3 +1,4 @@
+""" Rock scissors paper simulator """
 import random
 
 # WINNING PATTERNS
@@ -6,104 +7,117 @@ import random
 # Lizard eats Paper, Paper disproves Spock, Spock vaporizes Rock,
 # Rock crushes Scissors
 
-win = [("scissors","paper"), ("paper","rock"), ("rock","lizard"),
-       ("lizard","Spock"), ("Spock","scissors"), ("scissors","lizard"),
-       ("lizard","paper"), ("paper","Spock"), ("Spock","rock"),
-       ("rock","scissors")]
+WIN = [
+    ("scissors", "paper"),
+    ("paper", "rock"),
+    ("rock", "lizard"),
+    ("lizard", "Spock"),
+    ("Spock", "scissors"),
+    ("scissors", "lizard"),
+    ("lizard", "paper"),
+    ("paper", "Spock"),
+    ("Spock", "rock"),
+    ("rock", "scissors"),
+]
 
 # INSTRUCTIONS
-print("There are 6 rounds.\nYou are playing against Computron.\nYou will win if you have a higher point.\nEnter scissors, paper, rock, lizard or Spock.\nLIVE LONG AND PROSPER🖖\n")
+print(
+    "There are 6 rounds.\nYou are playing against Computron.\n\
+    You will win if you have a higher point.\n\
+    Enter scissors, paper, rock, lizard or Spock.\n\
+    LIVE LONG AND PROSPER🖖\n"
+)
 
 # CHOICES FOR THE COMPUTRON TO CHOOSE FROM
-choices = ["scissors", "paper", "rock", "lizard", "Spock"]
+CHOICES = ["scissors", "paper", "rock", "lizard", "Spock"]
 
 # TO COUNT THE NUMBER OF ROUNDS
-count = 0
+COUNT = 0
 # TO COUNT THE PLAYER'S POINTS
-playerPoints = 0
+PLAYERPOINTS = 0
 # TO COUNT THE COMPUTRONS' POINTS
-computerPoints = 0
+COMPUTERPOINTS = 0
 
 # WHILE LOOP TO SET THE NUMBER OF ROUNDS
-while count != 6:
+while COUNT != 6:
     # INPUT FOR PLAYER'S CHOICE
-    player = input("What is your move? ")
+    PLAYER = input("What is your move? ")
     # COMPUTRON RANDOMLY SELECT CHOICE FROM CHOICES LIST
-    computer = random.choice(choices)
+    COMPUTER = random.choice(CHOICES)
     # UNCOMMENT THE LINE BELOW IF YOU WISH TO SEE COMPUTRONS' CHOICE
-    #print(computer)
+    # print(computer)
 
     # DIFFERENT CHOICES
-    if player != computer:
+    if PLAYER != COMPUTER:
         # CHECK FOR PATTERNS
-        playerWins = (player,computer)
-        computerWins = (computer,player)
-        if playerWins in win:
-            if playerWins == win[0]:
-                #print("✂ cuts 📃 \nYou Won!")
+        PLAYERWINS = (PLAYER, COMPUTER)
+        COMPUTERWINS = (COMPUTER, PLAYER)
+        if PLAYERWINS in WIN:
+            if PLAYERWINS == WIN[0]:
+                # print("✂ cuts 📃 \nYou Won!")
                 print("Scissors cuts paper \nYou Won!")
-            elif playerWins == win[1]:
+            elif PLAYERWINS == WIN[1]:
                 print("Paper covers rock \nYou Won!")
-            elif playerWins == win[2]:
+            elif PLAYERWINS == WIN[2]:
                 print("Rock crushes lizard \nYou Won!")
-            elif playerWins == win[3]:
+            elif PLAYERWINS == WIN[3]:
                 print("Lizard poisons Spock \nYou Won!")
-            elif playerWins == win[4]:
+            elif PLAYERWINS == WIN[4]:
                 print("Spock smashes scissors \nYou Won!")
-            elif playerWins == win[5]:
+            elif PLAYERWINS == WIN[5]:
                 print("Scissors decapitates lizard \nYou Won!")
-            elif playerWins == win[6]:
+            elif PLAYERWINS == WIN[6]:
                 print("Lizard eats paper \nYou Won!")
-            elif playerWins == win[7]:
+            elif PLAYERWINS == WIN[7]:
                 print("Paper disproves Spock \nYou Won!")
-            elif playerWins == win[8]:
+            elif PLAYERWINS == WIN[8]:
                 print("Spock vapourizes rock \nYou Won!")
-            elif playerWins == win[9]:
+            elif PLAYERWINS == WIN[9]:
                 print("Rock crushes scissors \nYou Won!")
-            playerPoints += 1
-        elif computerWins in win:
-            if computerWins == win[0]:
+            PLAYERPOINTS += 1
+        elif COMPUTERWINS in WIN:
+            if COMPUTERWINS == WIN[0]:
                 print("Scissors cuts paper \nComputron Wins!")
-            elif computerWins == win[1]:
+            elif COMPUTERWINS == WIN[1]:
                 print("Paper covers rock \nComputron Wins!")
-            elif computerWins == win[2]:
+            elif COMPUTERWINS == WIN[2]:
                 print("Rock crushes lizard \nComputron Wins!")
-            elif computerWins == win[3]:
+            elif COMPUTERWINS == WIN[3]:
                 print("Lizard poisons Spock \nComputron Wins!")
-            elif computerWins == win[4]:
+            elif COMPUTERWINS == WIN[4]:
                 print("Spock smashes scissors \nComputron Wins!")
-            elif computerWins == win[5]:
+            elif COMPUTERWINS == WIN[5]:
                 print("Scissors decapitates lizard \nComputron Wins!")
-            elif computerWins == win[6]:
+            elif COMPUTERWINS == WIN[6]:
                 print("Lizard eats paper \nComputron Wins!")
-            elif computerWins == win[7]:
+            elif COMPUTERWINS == WIN[7]:
                 print("Paper disproves Spock \nComputron Wins!")
-            elif computerWins == win[8]:
+            elif COMPUTERWINS == WIN[8]:
                 print("Spock vapourizes rock \nComputron Wins!")
-            elif computerWins == win[9]:
+            elif COMPUTERWINS == WIN[9]:
                 print("Rock crushes scissors \nComputron Wins!")
-            computerPoints += 1
+            COMPUTERPOINTS += 1
         # PLAYER DID NOT INPUT scissors, paper, rock, lizard or Spock
         else:
             print("Invalid response \nComputron Wins!")
-            computerPoints += 1
+            COMPUTERPOINTS += 1
 
     # DRAW, SAME CHOICES
-    elif player == computer:
+    elif PLAYER == COMPUTER:
         print("Draw, Player and Computron gets 1 point")
-        playerPoints += 1
-        computerPoints += 1
+        PLAYERPOINTS += 1
+        COMPUTERPOINTS += 1
 
     # EMPTY LINE FOR A NEATER/CLEARER VIEW
     print("")
 
     # INCREMENT TO CONTROL THE NUMBER OR ROUNDS
-    count += 1
+    COUNT += 1
 
 # COMPARISON TO DETERMINE WHO IS THE CHAMPION
-if playerPoints > computerPoints:
+if PLAYERPOINTS > COMPUTERPOINTS:
     print("You are the champion! 🏆")
-elif playerPoints == computerPoints:
+elif PLAYERPOINTS == COMPUTERPOINTS:
     print("You are both champions!! 🏆🏆")
 else:
     print("Computron is the champion, Try Again! 💻")
